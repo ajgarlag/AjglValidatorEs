@@ -3,6 +3,7 @@ AjglValidatorEs
 
 This library provides some validators for common Spanish codes.
 
+
 Usage
 -----
 
@@ -20,8 +21,10 @@ All validators implements a common interface with only one method:
 public function validate($value);
 ```
 
+
 Integration with Symfony Validator
 ----------------------------------
+
 For each validator, a suitable Constraint and ConstraintValidator class is provided,
 so you can use the Symfony Validator service.
 
@@ -32,8 +35,17 @@ $violations = $validator->validateValue('00000001Z', new \Ajgl\Validator\Es\Cons
 
 License
 ---------
+
 This library is under the MIT license. See the complete license in the LICENSE file.
+
 
 About
 -----
+
 This is an [ajgarlag](http://aj.garcialagar.es) initiative.
+
+
+Reporting an issue or a feature request
+---------------------------------------
+
+Issues and feature requests are tracked in the [Github issue tracker](https://github.com/ajgarlag/AjglValidatorEsBundle/issues).
