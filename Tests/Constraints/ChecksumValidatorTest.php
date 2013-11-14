@@ -17,7 +17,7 @@ use Ajgl\Validator\Es\ChecksumValidator;
 abstract class ChecksumValidatorTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var \Symfony\Component\Validator\ExecutionContextInterface
+     * @var \Symfony\Component\Validator\ExecutionContext
      */
     protected $context;
 
@@ -29,7 +29,7 @@ abstract class ChecksumValidatorTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->object = $this->createValidator();
-        $this->context = $this->getMock('Symfony\Component\Validator\ExecutionContextInterface');
+        $this->context = $this->getMockBuilder('Symfony\Component\Validator\ExecutionContext')->disableOriginalConstructor()->getMock();
         $this->object->initialize($this->context);
     }
 
