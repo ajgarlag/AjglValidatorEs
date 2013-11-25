@@ -18,10 +18,10 @@ All validators implements a common interface with only one method:
 ```php
 /**
  * Validates the given value
- * 
- * Will return void if the given value is valid or will throw an 
+ *
+ * Will return void if the given value is valid or will throw an
  *  \InvalidArgumentException otherwise
- * 
+ *
  * @param mixed
  * @throws \InvalidArgumentException
  */
@@ -61,4 +61,4 @@ This is an [ajgarlag](http://aj.garcialagar.es) initiative.
 Reporting an issue or a feature request
 ---------------------------------------
 
-Issues and feature requests are tracked in the [Github issue tracker](https://github.com/ajgarlag/AjglValidatorEsBundle/issues).
+Issues and feature requests are tracked in the [Github issue tracker](https://github.com/ajgarlag/AjglValidatorEs/issues).
