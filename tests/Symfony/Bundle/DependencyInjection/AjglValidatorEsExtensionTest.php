@@ -13,9 +13,12 @@ declare(strict_types=1);
 
 namespace Ajgl\ValidatorEs\Tests\Symfony\Bundle\DependencyInjection;
 
-use Ajgl\ValidatorEs\Symfony\Bridge\Validator\Constraints\DniValidator;
-use Ajgl\ValidatorEs\Symfony\Bridge\Validator\Constraints\IdCardValidator;
-use Ajgl\ValidatorEs\Symfony\Bridge\Validator\Constraints\NieValidator;
+use Ajgl\ValidatorEs\DniValidator;
+use Ajgl\ValidatorEs\IdCardValidator;
+use Ajgl\ValidatorEs\NieValidator;
+use Ajgl\ValidatorEs\Symfony\Bridge\Validator\Constraints\DniValidator as ConstraintsDniValidator;
+use Ajgl\ValidatorEs\Symfony\Bridge\Validator\Constraints\IdCardValidator as ConstraintsIdCardValidator;
+use Ajgl\ValidatorEs\Symfony\Bridge\Validator\Constraints\NieValidator as ConstraintsNieValidator;
 use Ajgl\ValidatorEs\Symfony\Bundle\DependencyInjection\AjglValidatorEsExtension;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -46,6 +49,28 @@ final class AjglValidatorEsExtensionTest extends AbstractExtensionTestCase
      * @return list<array<int, string>>
      */
     public static function symfonyValidators(): array
+    {
+        return [
+            [ConstraintsDniValidator::class],
+            [ConstraintsIdCardValidator::class],
+            [ConstraintsNieValidator::class],
+        ];
+    }
+
+    /**
+     * @dataProvider validators
+     */
+    #[DataProvider('validators')]
+    public function testValidatorsAreDefined(string $validatorClass): void
+    {
+        $this->load();
+        $this->assertContainerBuilderHasService($validatorClass);
+    }
+
+    /**
+     * @return list<array<int, string>>
+     */
+    public static function validators(): array
     {
         return [
             [DniValidator::class],

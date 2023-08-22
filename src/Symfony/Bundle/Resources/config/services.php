@@ -23,4 +23,9 @@ return static function (ContainerConfigurator $container): void {
         'Ajgl\\ValidatorEs\\Symfony\\Bridge\\Validator\\Constraints\\',
         __DIR__ . '/../../../Bridge/Validator/Constraints/*Validator.php'
     );
+
+    $services->load(
+        'Ajgl\\ValidatorEs\\',
+        __DIR__ . '/../../../../*Validator.php'
+    );
 };
