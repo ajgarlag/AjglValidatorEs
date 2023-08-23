@@ -3,7 +3,7 @@
 This library provides some validators for common Spanish codes.
 
 [![Build Status](https://github.com/ajgarlag/AjglValidatorEs/workflows/ci/badge.svg?branch=main)](https://github.com/ajgarlag/AjglValidatorEs/actions)
-[![Latest Stable Version](http://poser.pugx.org/ajgl/validator-es/v)](https://packagist.org/packages/ajgl/validator-es) [![Total Downloads](http://poser.pugx.org/ajgl/validator-es/downloads)](https://packagist.org/packages/ajgl/validator-es) [![Latest Unstable Version](http://poser.pugx.org/ajgl/validator-es/v/unstable)](https://packagist.org/packages/ajgl/validator-es) [![License](http://poser.pugx.org/ajgl/validator-es/license)](https://packagist.org/packages/ajgl/validator-es) [![PHP Version Require](http://poser.pugx.org/ajgl/validator-es/require/php)](https://packagist.org/packages/ajgl/validator-es)
+[![Latest Stable Version](https://poser.pugx.org/ajgl/validator-es/v)](https://packagist.org/packages/ajgl/validator-es) [![Total Downloads](https://poser.pugx.org/ajgl/validator-es/downloads)](https://packagist.org/packages/ajgl/validator-es) [![Latest Unstable Version](https://poser.pugx.org/ajgl/validator-es/v/unstable)](https://packagist.org/packages/ajgl/validator-es) [![License](https://poser.pugx.org/ajgl/validator-es/license)](https://packagist.org/packages/ajgl/validator-es) [![PHP Version Require](https://poser.pugx.org/ajgl/validator-es/require/php)](https://packagist.org/packages/ajgl/validator-es)
 
 Current supported codes to validate are:
  * [DNI](http://es.wikipedia.org/wiki/Documento_de_identidad#Espa.C3.B1a)
