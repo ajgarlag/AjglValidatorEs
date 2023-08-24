@@ -17,7 +17,7 @@ final class NieValidator implements ValidatorInterface
 {
     use PatternValidatorTrait;
     use ChecksumValidatorTrait;
-    private const PATTERN = '/^[XYZ][0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKE]$/';
+    private const PATTERN = '/^[XYZ]\d{7}[TRWAGMYFPDXBNJZSQVHLCKE]$/';
     private const CHECKSUM = ['T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E'];
 
     public function isValid(mixed $value): bool

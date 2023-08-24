@@ -17,8 +17,6 @@ use Ajgl\ValidatorEs\NieValidator;
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
-use Safe\Exceptions\PcreException;
-use PHPUnit\Framework\ExpectationFailedException;
 
 /**
  * @covers NieValidator

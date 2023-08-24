@@ -15,7 +15,6 @@ return (new Config())
     ->setRiskyAllowed(true)
     ->setRules(
         [
-
             '@PER' => true,
             '@PER:risky' => true,
             '@PHP81Migration' => true,
