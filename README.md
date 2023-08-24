@@ -9,6 +9,8 @@ Current supported codes to validate are:
  * [DNI](http://es.wikipedia.org/wiki/Documento_de_identidad#Espa.C3.B1a)
  * [NIE](http://es.wikipedia.org/wiki/NIE)
  * IdCard (DNI or NIE)
+ * [CCC](https://es.wikipedia.org/wiki/C%C3%B3digo_cuenta_cliente)
+ * [IBAN](https://es.wikipedia.org/wiki/International_Bank_Account_Number#En_Espa%C3%B1a) (Limited to Spanish accounts)
 
 
 ## Installation

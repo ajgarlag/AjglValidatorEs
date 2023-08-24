@@ -13,10 +13,14 @@ declare(strict_types=1);
 
 namespace Ajgl\ValidatorEs\Tests\Symfony\Bundle\DependencyInjection;
 
+use Ajgl\ValidatorEs\CccValidator;
 use Ajgl\ValidatorEs\DniValidator;
+use Ajgl\ValidatorEs\IbanValidator;
 use Ajgl\ValidatorEs\IdCardValidator;
 use Ajgl\ValidatorEs\NieValidator;
+use Ajgl\ValidatorEs\Symfony\Bridge\Validator\Constraints\CccValidator as ConstraintsCccValidator;
 use Ajgl\ValidatorEs\Symfony\Bridge\Validator\Constraints\DniValidator as ConstraintsDniValidator;
+use Ajgl\ValidatorEs\Symfony\Bridge\Validator\Constraints\IbanValidator as ConstraintsIbanValidator;
 use Ajgl\ValidatorEs\Symfony\Bridge\Validator\Constraints\IdCardValidator as ConstraintsIdCardValidator;
 use Ajgl\ValidatorEs\Symfony\Bridge\Validator\Constraints\NieValidator as ConstraintsNieValidator;
 use Ajgl\ValidatorEs\Symfony\Bundle\DependencyInjection\AjglValidatorEsExtension;
@@ -54,6 +58,8 @@ final class AjglValidatorEsExtensionTest extends AbstractExtensionTestCase
             [ConstraintsDniValidator::class],
             [ConstraintsIdCardValidator::class],
             [ConstraintsNieValidator::class],
+            [ConstraintsCccValidator::class],
+            [ConstraintsIbanValidator::class],
         ];
     }
 
@@ -76,6 +82,8 @@ final class AjglValidatorEsExtensionTest extends AbstractExtensionTestCase
             [DniValidator::class],
             [IdCardValidator::class],
             [NieValidator::class],
+            [CccValidator::class],
+            [IbanValidator::class],
         ];
     }
 }
