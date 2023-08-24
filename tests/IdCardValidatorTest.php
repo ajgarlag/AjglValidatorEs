@@ -17,8 +17,6 @@ use Ajgl\ValidatorEs\IdCardValidator;
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
-use Safe\Exceptions\PcreException;
-use PHPUnit\Framework\ExpectationFailedException;
 
 /**
  * @covers IdCardValidator

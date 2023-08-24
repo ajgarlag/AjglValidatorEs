@@ -18,7 +18,6 @@ use Ajgl\ValidatorEs\Symfony\Bridge\Validator\Constraints\IdCardValidator;
 use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\ExpectationFailedException;
 
 /**
  * @extends ConstraintValidatorTestCase<IdCardValidator>
