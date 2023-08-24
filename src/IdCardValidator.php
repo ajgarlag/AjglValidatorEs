@@ -33,6 +33,10 @@ final class IdCardValidator implements ValidatorInterface
     {
         $this->initialize();
 
-        return $this->dniValidator->isValid($value) || $this->nieValidator->isValid($value);
+        if ($this->dniValidator->isValid($value)) {
+            return true;
+        }
+
+        return $this->nieValidator->isValid($value);
     }
 }

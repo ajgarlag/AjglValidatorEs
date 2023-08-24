@@ -54,9 +54,9 @@ final class IdCardValidatorTest extends ConstraintValidatorTestCase
     }
 
     /**
-     * @return list<list<string>>
+     * @return \Iterator<list<string>>
      */
-    public static function validValues(): iterable
+    public static function validValues(): \Iterator
     {
         yield from [
             ['44055333Y'],
@@ -83,9 +83,9 @@ final class IdCardValidatorTest extends ConstraintValidatorTestCase
     }
 
     /**
-     * @return list<list<mixed>>
+     * @return \Iterator<list<mixed>>
      */
-    public static function invalidValues(): iterable
+    public static function invalidValues(): \Iterator
     {
         yield from [
             ['34055333Y'],
