@@ -15,6 +15,4 @@ namespace Ajgl\ValidatorEs\Symfony\Bundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-final class AjglValidatorEsBundle extends Bundle
-{
-}
+final class AjglValidatorEsBundle extends Bundle {}
