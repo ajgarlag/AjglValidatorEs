@@ -48,7 +48,7 @@ final class IbanValidator implements ValidatorInterface
             throw new RuntimeException('The "gmp" PHP extension is not loaded.');
         }
 
-        $mod = 98 - gmp_intval(gmp_mod(gmp_init(substr($value, 4).self::ES_CODE, 10), 97));
+        $mod = 98 - gmp_intval(gmp_mod(gmp_init(substr($value, 4) . self::ES_CODE, 10), 97));
         return str_pad((string) $mod, 2, '0', \STR_PAD_LEFT);
     }
 }
