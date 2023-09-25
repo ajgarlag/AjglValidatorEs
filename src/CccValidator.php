@@ -40,7 +40,7 @@ final class CccValidator implements ValidatorInterface
 
     protected function computeChecksum(string $value): string
     {
-        return $this->computePartialChecksum('00'.substr($value, 0, 8)) . $this->computePartialChecksum(substr($value, 10));
+        return $this->computePartialChecksum('00' . substr($value, 0, 8)) . $this->computePartialChecksum(substr($value, 10));
     }
 
     private function computePartialChecksum(string $value): string
