@@ -18,7 +18,7 @@ final class NieValidator implements ValidatorInterface
     use PatternValidatorTrait;
     use ChecksumValidatorTrait;
     private const PATTERN = '/^[XYZ]\d{7}[TRWAGMYFPDXBNJZSQVHLCKE]$/';
-    private const CHECKSUM = ['T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E'];
+    private NieChecksumCalculator $nieChecksumCalculator;
 
     public function isValid(mixed $value): bool
     {
@@ -41,6 +41,15 @@ final class NieValidator implements ValidatorInterface
 
     protected function computeChecksum(string $value): string
     {
-        return self::CHECKSUM[substr(strtr($value, 'XYZ', '012'), 0, -1) % 23];
+        return $this->nieChecksumCalculator()->calculateChecksum(substr($value, 0, -1));
+    }
+
+    private function nieChecksumCalculator(): NieChecksumCalculator
+    {
+        if (!isset($this->nieChecksumCalculator)) {
+            $this->nieChecksumCalculator = new NieChecksumCalculator();
+        }
+
+        return $this->nieChecksumCalculator;
     }
 }

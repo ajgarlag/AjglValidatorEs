@@ -26,6 +26,6 @@ return static function (ContainerConfigurator $container): void {
 
     $services->load(
         'Ajgl\\ValidatorEs\\',
-        __DIR__ . '/../../../../*Validator.php'
+        __DIR__ . '/../../../../*{Calculator,Validator}.php'
     );
 };

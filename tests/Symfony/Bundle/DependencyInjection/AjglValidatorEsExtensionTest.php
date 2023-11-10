@@ -14,9 +14,13 @@ declare(strict_types=1);
 namespace Ajgl\ValidatorEs\Tests\Symfony\Bundle\DependencyInjection;
 
 use Ajgl\ValidatorEs\CccValidator;
+use Ajgl\ValidatorEs\DniChecksumCalculator;
 use Ajgl\ValidatorEs\DniValidator;
+use Ajgl\ValidatorEs\IbanChecksumCalculator;
 use Ajgl\ValidatorEs\IbanValidator;
+use Ajgl\ValidatorEs\IdCardChecksumCalculator;
 use Ajgl\ValidatorEs\IdCardValidator;
+use Ajgl\ValidatorEs\NieChecksumCalculator;
 use Ajgl\ValidatorEs\NieValidator;
 use Ajgl\ValidatorEs\Symfony\Bridge\Validator\Constraints\CccValidator as ConstraintsCccValidator;
 use Ajgl\ValidatorEs\Symfony\Bridge\Validator\Constraints\DniValidator as ConstraintsDniValidator;
@@ -84,6 +88,29 @@ final class AjglValidatorEsExtensionTest extends AbstractExtensionTestCase
             [NieValidator::class],
             [CccValidator::class],
             [IbanValidator::class],
+        ];
+    }
+
+    /**
+     * @dataProvider calculators
+     */
+    #[DataProvider('calculators')]
+    public function testCalculatorsAreDefined(string $calculatorClass): void
+    {
+        $this->load();
+        $this->assertContainerBuilderHasService($calculatorClass);
+    }
+
+    /**
+     * @return list<array<int, string>>
+     */
+    public static function calculators(): array
+    {
+        return [
+            [DniChecksumCalculator::class],
+            [IdCardChecksumCalculator::class],
+            [NieChecksumCalculator::class],
+            [IbanChecksumCalculator::class],
         ];
     }
 }
