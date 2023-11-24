@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.3] - 2023-11-24
+
 ### Added
 
 - Checksum calculators
@@ -34,7 +36,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Symfony integration
 
 
-[unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/0.1.2...HEAD
-[0.1.2]: https://github.com/olivierlacan/keep-a-changelog/releases/tag/0.1.2
-[0.1.1]: https://github.com/olivierlacan/keep-a-changelog/releases/tag/0.1.1
-[0.1.0]: https://github.com/olivierlacan/keep-a-changelog/releases/tag/0.1.0
+[unreleased]: https://github.com/ajgarlag/AjglValidatorEs/compare/0.1.3...HEAD
+[0.1.3]: https://github.com/ajgarlag/AjglValidatorEs/releases/tag/0.1.3
+[0.1.2]: https://github.com/ajgarlag/AjglValidatorEs/releases/tag/0.1.2
+[0.1.1]: https://github.com/ajgarlag/AjglValidatorEs/releases/tag/0.1.1
+[0.1.0]: https://github.com/ajgarlag/AjglValidatorEs/releases/tag/0.1.0
