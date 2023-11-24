@@ -9,19 +9,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Add checksum calculators
+- Checksum calculators
+- PHP 8.3 support
 
 ## [0.1.2] - 2023-08-24
 
 ### Added
 
-- Add CCC and IBAN Validator
+- CCC and IBAN Validator
 
 ## [0.1.1] - 2023-08-22
 
 ### Added
 
-- Add validators to Symfony container
+- Validators into Symfony container
 
 ## [0.1.0] - 2023-07-28
 
