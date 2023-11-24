@@ -13,20 +13,15 @@ declare(strict_types=1);
 
 namespace Ajgl\ValidatorEs;
 
-final class DniValidator implements ValidatorInterface
+final class NieChecksumCalculator implements ChecksumCalculatorInterface
 {
     use PatternValidatorTrait;
-    use ChecksumValidatorTrait;
-    private const PATTERN = '/^\d{8}[TRWAGMYFPDXBNJZSQVHLCKE]$/';
+    private const PATTERN = '/^[XYZ]\d{7}$/i';
     private DniChecksumCalculator $dniChecksumCalculator;
 
-    public function isValid(mixed $value): bool
+    public function isValid(string $value): bool
     {
-        return
-            is_string($value)
-            && $this->isValidPattern($value)
-            && $this->isValidChecksum($value)
-        ;
+        return $this->isValidPattern($value);
     }
 
     protected function getPattern(): string
@@ -34,14 +29,12 @@ final class DniValidator implements ValidatorInterface
         return self::PATTERN;
     }
 
-    protected function extractChecksum(string $value): string
+    public function calculateChecksum(string $value): string
     {
-        return substr($value, -1);
-    }
-
-    protected function computeChecksum(string $value): string
-    {
-        return  $this->dniChecksumCalculator()->calculateChecksum(substr($value, 0, -1));
+        if (!$this->isValid($value)) {
+            throw new \InvalidArgumentException();
+        }
+        return $this->dniChecksumCalculator()->calculateChecksum(strtr(strtoupper($value), 'XYZ', '012'));
     }
 
     private function dniChecksumCalculator(): DniChecksumCalculator

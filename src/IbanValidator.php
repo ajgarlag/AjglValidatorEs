@@ -13,22 +13,20 @@ declare(strict_types=1);
 
 namespace Ajgl\ValidatorEs;
 
-use RuntimeException;
-
 final class IbanValidator implements ValidatorInterface
 {
     use PatternValidatorTrait;
     use ChecksumValidatorTrait;
     private const PATTERN = '/^ES\d{22}$/';
-    private const ES_CODE = '142800';
+    private IbanChecksumCalculator $ibanChecksumCalculator;
 
     public function isValid(mixed $value): bool
     {
         return
             is_string($value)
             && $this->isValidPattern($value)
-            && $this->isValidChecksum($value)
             && (new CccValidator())->isValid(substr($value, 4))
+            && $this->isValidChecksum($value)
         ;
     }
 
@@ -44,11 +42,15 @@ final class IbanValidator implements ValidatorInterface
 
     protected function computeChecksum(string $value): string
     {
-        if (!\function_exists('gmp_intval')) {
-            throw new RuntimeException('The "gmp" PHP extension is not loaded.');
+        return $this->ibanChecksumCalculator()->calculateChecksum(substr($value, 4));
+    }
+
+    private function ibanChecksumCalculator(): IbanChecksumCalculator
+    {
+        if (!isset($this->ibanChecksumCalculator)) {
+            $this->ibanChecksumCalculator = new IbanChecksumCalculator();
         }
 
-        $mod = 98 - gmp_intval(gmp_mod(gmp_init(substr($value, 4) . self::ES_CODE, 10), 97));
-        return str_pad((string) $mod, 2, '0', \STR_PAD_LEFT);
+        return $this->ibanChecksumCalculator;
     }
 }
