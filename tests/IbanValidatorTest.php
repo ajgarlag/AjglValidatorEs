@@ -28,6 +28,11 @@ final class IbanValidatorTest extends TestCase
 
     protected function setUp(): void
     {
+        if (!extension_loaded('gmp')) {
+            $this->markTestSkipped(
+                'The GMP extension is not available.'
+            );
+        }
         $this->validator = new IbanValidator();
     }
 
