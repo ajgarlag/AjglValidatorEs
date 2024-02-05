@@ -15,8 +15,8 @@ return (new Config())
     ->setRiskyAllowed(true)
     ->setRules(
         [
-            '@PER' => true,
-            '@PER:risky' => true,
+            '@PER-CS' => true,
+            '@PER-CS:risky' => true,
             '@PHP81Migration' => true,
             '@PHP80Migration:risky' => true,
             'header_comment' => ['header' => $header],
