@@ -19,7 +19,7 @@ use Rector\Symfony\Set\SymfonySetList;
 return RectorConfig::configure()
     ->withPaths([
         __DIR__ . '/src',
-        __DIR__ . '/tests'
+        __DIR__ . '/tests',
     ])
 
     ->withPreparedSets(deadCode: true, codeQuality: true, privatization: true, earlyReturn: true, instanceOf: true, typeDeclarations: true, strictBooleans: true)
