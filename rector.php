@@ -12,38 +12,21 @@ declare(strict_types=1);
  */
 
 use Rector\Config\RectorConfig;
-use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
-use Rector\PHPUnit\Set\PHPUnitLevelSetList;
 use Rector\PHPUnit\Set\PHPUnitSetList;
+use Rector\Symfony\Set\SymfonySetList;
 
-return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->parallel();
+return RectorConfig::configure()
+    ->withPaths([
+        __DIR__ . '/src',
+        __DIR__ . '/tests'
+    ])
 
-    $rectorConfig->removeUnusedImports();
+    ->withPreparedSets(deadCode: true, codeQuality: true, privatization: true, earlyReturn: true, instanceOf: true, typeDeclarations: true, strictBooleans: true)
 
-    $rectorConfig->paths([
-        __DIR__,
-    ]);
-
-    $rectorConfig->skip([
-        __DIR__ . '/vendor',
-    ]);
-
-    $rectorConfig->phpstanConfig(__DIR__ . '/phpstan.dist.neon');
-
-    $rectorConfig->sets([
-        SetList::CODE_QUALITY,
-        SetList::DEAD_CODE,
-        SetList::PRIVATIZATION,
-        SetList::EARLY_RETURN,
-        SetList::INSTANCEOF,
-        SetList::TYPE_DECLARATION,
-        LevelSetList::UP_TO_PHP_81,
-    ]);
-
-    $rectorConfig->sets([
-        PHPUnitLevelSetList::UP_TO_PHPUNIT_90,
+    ->withSets([
+        SetList::PHP_81,
         PHPUnitSetList::PHPUNIT_91,
-    ]);
-};
+        SymfonySetList::SYMFONY_54,
+    ])
+;
