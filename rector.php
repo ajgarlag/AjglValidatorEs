@@ -12,7 +12,6 @@ declare(strict_types=1);
  */
 
 use Rector\Config\RectorConfig;
-use Rector\Set\ValueObject\SetList;
 use Rector\PHPUnit\Set\PHPUnitSetList;
 use Rector\Symfony\Set\SymfonySetList;
 
@@ -22,10 +21,11 @@ return RectorConfig::configure()
         __DIR__ . '/tests',
     ])
 
+    ->withPhpSets()
+
     ->withPreparedSets(deadCode: true, codeQuality: true, privatization: true, earlyReturn: true, instanceOf: true, typeDeclarations: true, strictBooleans: true)
 
     ->withSets([
-        SetList::PHP_81,
         PHPUnitSetList::PHPUNIT_91,
         SymfonySetList::SYMFONY_54,
     ])
