@@ -37,7 +37,7 @@ final class DniChecksumCalculatorTest extends TestCase
     #[DataProvider('validValues')]
     public function testValidValues(string $value): void
     {
-        self::assertTrue($this->calculator->isValid($value));
+        $this->assertTrue($this->calculator->isValid($value));
     }
 
     /**
@@ -46,7 +46,7 @@ final class DniChecksumCalculatorTest extends TestCase
     #[DataProvider('validValues')]
     public function testCalculatedChecksum(string $value, string $checksum): void
     {
-        self::assertSame($checksum, $this->calculator->calculateChecksum($value));
+        $this->assertSame($checksum, $this->calculator->calculateChecksum($value));
     }
 
     /**
@@ -55,7 +55,7 @@ final class DniChecksumCalculatorTest extends TestCase
     #[DataProvider('invalidValues')]
     public function testInvalidValues(string $value): void
     {
-        self::assertFalse($this->calculator->isValid($value));
+        $this->assertFalse($this->calculator->isValid($value));
     }
 
     /**

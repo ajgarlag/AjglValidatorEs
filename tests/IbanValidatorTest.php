@@ -42,7 +42,7 @@ final class IbanValidatorTest extends TestCase
     #[DataProvider('validValues')]
     public function testValidValues(string $value): void
     {
-        self::assertTrue($this->validator->isValid($value));
+        $this->assertTrue($this->validator->isValid($value));
     }
 
     /**
@@ -51,7 +51,7 @@ final class IbanValidatorTest extends TestCase
     #[DataProvider('invalidValues')]
     public function testInvalidValues(mixed $value): void
     {
-        self::assertFalse($this->validator->isValid($value));
+        $this->assertFalse($this->validator->isValid($value));
     }
 
     /**

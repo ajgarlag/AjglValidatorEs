@@ -56,15 +56,13 @@ final class AjglValidatorEsExtensionTest extends AbstractExtensionTestCase
     /**
      * @return list<array<int, string>>
      */
-    public static function symfonyValidators(): array
+    public static function symfonyValidators(): \Iterator
     {
-        return [
-            [ConstraintsDniValidator::class],
-            [ConstraintsIdCardValidator::class],
-            [ConstraintsNieValidator::class],
-            [ConstraintsCccValidator::class],
-            [ConstraintsIbanValidator::class],
-        ];
+        yield [ConstraintsDniValidator::class];
+        yield [ConstraintsIdCardValidator::class];
+        yield [ConstraintsNieValidator::class];
+        yield [ConstraintsCccValidator::class];
+        yield [ConstraintsIbanValidator::class];
     }
 
     /**
@@ -80,15 +78,13 @@ final class AjglValidatorEsExtensionTest extends AbstractExtensionTestCase
     /**
      * @return list<array<int, string>>
      */
-    public static function validators(): array
+    public static function validators(): \Iterator
     {
-        return [
-            [DniValidator::class],
-            [IdCardValidator::class],
-            [NieValidator::class],
-            [CccValidator::class],
-            [IbanValidator::class],
-        ];
+        yield [DniValidator::class];
+        yield [IdCardValidator::class];
+        yield [NieValidator::class];
+        yield [CccValidator::class];
+        yield [IbanValidator::class];
     }
 
     /**
@@ -104,13 +100,11 @@ final class AjglValidatorEsExtensionTest extends AbstractExtensionTestCase
     /**
      * @return list<array<int, string>>
      */
-    public static function calculators(): array
+    public static function calculators(): \Iterator
     {
-        return [
-            [DniChecksumCalculator::class],
-            [IdCardChecksumCalculator::class],
-            [NieChecksumCalculator::class],
-            [IbanChecksumCalculator::class],
-        ];
+        yield [DniChecksumCalculator::class];
+        yield [IdCardChecksumCalculator::class];
+        yield [NieChecksumCalculator::class];
+        yield [IbanChecksumCalculator::class];
     }
 }

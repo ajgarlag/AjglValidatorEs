@@ -12,8 +12,6 @@ declare(strict_types=1);
  */
 
 use Rector\Config\RectorConfig;
-use Rector\PHPUnit\Set\PHPUnitSetList;
-use Rector\Symfony\Set\SymfonySetList;
 
 return RectorConfig::configure()
     ->withPaths([
@@ -23,10 +21,5 @@ return RectorConfig::configure()
 
     ->withPhpSets()
 
-    ->withPreparedSets(deadCode: true, codeQuality: true, privatization: true, earlyReturn: true, instanceOf: true, typeDeclarations: true, strictBooleans: true)
-
-    ->withSets([
-        PHPUnitSetList::PHPUNIT_91,
-        SymfonySetList::SYMFONY_54,
-    ])
+    ->withPreparedSets(deadCode: true, codeQuality: true, privatization: true, earlyReturn: true, instanceOf: true, typeDeclarations: true, strictBooleans: true, phpunit: true, phpunitCodeQuality: true, symfonyCodeQuality: true)
 ;
