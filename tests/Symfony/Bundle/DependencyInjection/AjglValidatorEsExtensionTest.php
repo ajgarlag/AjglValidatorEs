@@ -54,7 +54,7 @@ final class AjglValidatorEsExtensionTest extends AbstractExtensionTestCase
     }
 
     /**
-     * @return list<array<int, string>>
+     * @return \Iterator<array<int, string>>
      */
     public static function symfonyValidators(): \Iterator
     {
@@ -76,7 +76,7 @@ final class AjglValidatorEsExtensionTest extends AbstractExtensionTestCase
     }
 
     /**
-     * @return list<array<int, string>>
+     * @return \Iterator<array<int, string>>
      */
     public static function validators(): \Iterator
     {
@@ -98,7 +98,7 @@ final class AjglValidatorEsExtensionTest extends AbstractExtensionTestCase
     }
 
     /**
-     * @return list<array<int, string>>
+     * @return \Iterator<array<int, string>>
      */
     public static function calculators(): \Iterator
     {

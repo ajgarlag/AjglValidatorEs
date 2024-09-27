@@ -34,6 +34,9 @@ final class DniChecksumCalculator implements ChecksumCalculatorInterface
         if (!$this->isValid($value)) {
             throw new \InvalidArgumentException();
         }
-        return self::CHECKSUM[$value % 23];
+
+        $intValue = (int) $value;
+
+        return self::CHECKSUM[$intValue % 23];
     }
 }
