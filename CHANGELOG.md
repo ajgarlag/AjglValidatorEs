@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.5] - 2024-09-27
+
 ### Fixed
 
 - Avoid deprecated parent class
@@ -29,7 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - CCC and IBAN Validator
-
+1-12
 ## [0.1.1] - 2023-08-22
 
 ### Added
@@ -46,7 +48,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Symfony integration
 
 
-[unreleased]: https://github.com/ajgarlag/AjglValidatorEs/compare/0.1.4...HEAD
+[unreleased]: https://github.com/ajgarlag/AjglValidatorEs/compare/0.1.5...HEAD
+[0.1.5]: https://github.com/ajgarlag/AjglValidatorEs/releases/tag/0.1.5
 [0.1.4]: https://github.com/ajgarlag/AjglValidatorEs/releases/tag/0.1.4
 [0.1.3]: https://github.com/ajgarlag/AjglValidatorEs/releases/tag/0.1.3
 [0.1.2]: https://github.com/ajgarlag/AjglValidatorEs/releases/tag/0.1.2
