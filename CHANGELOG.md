@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `thecodingmachine/safe:^3` support
+
 ## [0.1.5] - 2024-09-27
 
 ### Fixed
