@@ -32,9 +32,6 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractExtensionTestCase;
 
-/**
- * @covers AjglValidatorEsExtension
- */
 #[CoversClass(AjglValidatorEsExtension::class)]
 final class AjglValidatorEsExtensionTest extends AbstractExtensionTestCase
 {
@@ -43,9 +40,6 @@ final class AjglValidatorEsExtensionTest extends AbstractExtensionTestCase
         return [new AjglValidatorEsExtension()];
     }
 
-    /**
-     * @dataProvider symfonyValidators
-     */
     #[DataProvider('symfonyValidators')]
     public function testSymfonyValidatorsAreDefined(string $validatorClass): void
     {
@@ -65,9 +59,6 @@ final class AjglValidatorEsExtensionTest extends AbstractExtensionTestCase
         yield [ConstraintsIbanValidator::class];
     }
 
-    /**
-     * @dataProvider validators
-     */
     #[DataProvider('validators')]
     public function testValidatorsAreDefined(string $validatorClass): void
     {
@@ -87,9 +78,6 @@ final class AjglValidatorEsExtensionTest extends AbstractExtensionTestCase
         yield [IbanValidator::class];
     }
 
-    /**
-     * @dataProvider calculators
-     */
     #[DataProvider('calculators')]
     public function testCalculatorsAreDefined(string $calculatorClass): void
     {

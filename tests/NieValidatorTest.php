@@ -18,9 +18,6 @@ use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 
-/**
- * @covers NieValidator
- */
 #[CoversClass(NieValidator::class)]
 final class NieValidatorTest extends TestCase
 {
@@ -31,18 +28,12 @@ final class NieValidatorTest extends TestCase
         $this->validator = new NieValidator();
     }
 
-    /**
-     * @dataProvider validValues
-     */
     #[DataProvider('validValues')]
     public function testValidValues(string $value): void
     {
         $this->assertTrue($this->validator->isValid($value));
     }
 
-    /**
-     * @dataProvider invalidValues
-     */
     #[DataProvider('invalidValues')]
     public function testInvalidValues(mixed $value): void
     {

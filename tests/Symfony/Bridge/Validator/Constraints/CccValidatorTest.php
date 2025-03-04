@@ -21,7 +21,6 @@ use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * @extends ConstraintValidatorTestCase<CccValidator>
- * @covers CccValidator
  */
 #[CoversClass(CccValidator::class)]
 final class CccValidatorTest extends ConstraintValidatorTestCase
@@ -31,9 +30,6 @@ final class CccValidatorTest extends ConstraintValidatorTestCase
         return new CccValidator();
     }
 
-    /**
-     * @dataProvider validValues
-     */
     #[DataProvider('validValues')]
     public function testValidValues(string $value): void
     {
@@ -42,9 +38,6 @@ final class CccValidatorTest extends ConstraintValidatorTestCase
         $this->assertNoViolation();
     }
 
-    /**
-     * @dataProvider invalidValues
-     */
     #[DataProvider('invalidValues')]
     public function testInvalidValues(mixed $value): void
     {

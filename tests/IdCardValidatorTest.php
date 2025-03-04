@@ -18,9 +18,6 @@ use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 
-/**
- * @covers IdCardValidator
- */
 #[CoversClass(IdCardValidator::class)]
 final class IdCardValidatorTest extends TestCase
 {
@@ -31,27 +28,18 @@ final class IdCardValidatorTest extends TestCase
         $this->validator = new IdCardValidator();
     }
 
-    /**
-     * @dataProvider validValues
-     */
     #[DataProvider('validValues')]
     public function testValidValues(string $value): void
     {
         $this->assertTrue($this->validator->isValid($value));
     }
 
-    /**
-     * @dataProvider invalidValues
-     */
     #[DataProvider('invalidValues')]
     public function testInvalidValues(mixed $value): void
     {
         $this->assertFalse($this->validator->isValid($value));
     }
 
-    /**
-     * @return \Iterator<list<string>>
-     */
     public static function validValues(): \Iterator
     {
         yield from [

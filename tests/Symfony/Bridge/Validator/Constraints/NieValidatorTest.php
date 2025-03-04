@@ -21,7 +21,6 @@ use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * @extends ConstraintValidatorTestCase<NieValidator>
- * @covers NieValidator
  */
 #[CoversClass(NieValidator::class)]
 final class NieValidatorTest extends ConstraintValidatorTestCase
@@ -31,9 +30,6 @@ final class NieValidatorTest extends ConstraintValidatorTestCase
         return new NieValidator();
     }
 
-    /**
-     * @dataProvider validValues
-     */
     #[DataProvider('validValues')]
     public function testValidValues(string $value): void
     {
@@ -42,9 +38,6 @@ final class NieValidatorTest extends ConstraintValidatorTestCase
         $this->assertNoViolation();
     }
 
-    /**
-     * @dataProvider invalidValues
-     */
     #[DataProvider('invalidValues')]
     public function testInvalidValues(mixed $value): void
     {

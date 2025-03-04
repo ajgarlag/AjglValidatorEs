@@ -21,7 +21,6 @@ use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * @extends ConstraintValidatorTestCase<DniValidator>
- * @covers DniValidator
  */
 #[CoversClass(DniValidator::class)]
 final class DniValidatorTest extends ConstraintValidatorTestCase
@@ -31,9 +30,6 @@ final class DniValidatorTest extends ConstraintValidatorTestCase
         return new DniValidator();
     }
 
-    /**
-     * @dataProvider validValues
-     */
     #[DataProvider('validValues')]
     public function testValidValues(string $value): void
     {
@@ -42,9 +38,6 @@ final class DniValidatorTest extends ConstraintValidatorTestCase
         $this->assertNoViolation();
     }
 
-    /**
-     * @dataProvider invalidValues
-     */
     #[DataProvider('invalidValues')]
     public function testInvalidValues(mixed $value): void
     {

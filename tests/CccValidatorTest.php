@@ -18,9 +18,6 @@ use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 
-/**
- * @covers CccValidator
- */
 #[CoversClass(CccValidator::class)]
 final class CccValidatorTest extends TestCase
 {
@@ -31,18 +28,12 @@ final class CccValidatorTest extends TestCase
         $this->validator = new CccValidator();
     }
 
-    /**
-     * @dataProvider validValues
-     */
     #[DataProvider('validValues')]
     public function testValidValues(string $value): void
     {
         $this->assertTrue($this->validator->isValid($value));
     }
 
-    /**
-     * @dataProvider invalidValues
-     */
     #[DataProvider('invalidValues')]
     public function testInvalidValues(mixed $value): void
     {

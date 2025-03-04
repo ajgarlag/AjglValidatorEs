@@ -21,7 +21,6 @@ use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * @extends ConstraintValidatorTestCase<IbanValidator>
- * @covers IbanValidator
  */
 #[CoversClass(IbanValidator::class)]
 final class IbanValidatorTest extends ConstraintValidatorTestCase
@@ -31,9 +30,6 @@ final class IbanValidatorTest extends ConstraintValidatorTestCase
         return new IbanValidator();
     }
 
-    /**
-     * @dataProvider validValues
-     */
     #[DataProvider('validValues')]
     public function testValidValues(string $value): void
     {
@@ -42,9 +38,6 @@ final class IbanValidatorTest extends ConstraintValidatorTestCase
         $this->assertNoViolation();
     }
 
-    /**
-     * @dataProvider invalidValues
-     */
     #[DataProvider('invalidValues')]
     public function testInvalidValues(mixed $value): void
     {

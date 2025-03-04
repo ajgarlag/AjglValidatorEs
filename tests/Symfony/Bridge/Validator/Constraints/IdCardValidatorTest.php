@@ -21,7 +21,6 @@ use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * @extends ConstraintValidatorTestCase<IdCardValidator>
- * @covers IdCardValidator
  */
 #[CoversClass(IdCardValidator::class)]
 final class IdCardValidatorTest extends ConstraintValidatorTestCase
@@ -31,9 +30,6 @@ final class IdCardValidatorTest extends ConstraintValidatorTestCase
         return new IdCardValidator();
     }
 
-    /**
-     * @dataProvider validValues
-     */
     #[DataProvider('validValues')]
     public function testValidValues(string $value): void
     {
@@ -42,9 +38,6 @@ final class IdCardValidatorTest extends ConstraintValidatorTestCase
         $this->assertNoViolation();
     }
 
-    /**
-     * @dataProvider invalidValues
-     */
     #[DataProvider('invalidValues')]
     public function testInvalidValues(mixed $value): void
     {

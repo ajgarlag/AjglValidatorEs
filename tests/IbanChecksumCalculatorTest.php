@@ -18,9 +18,6 @@ use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 
-/**
- * @covers IbanChecksumCalculator
- */
 #[CoversClass(IbanChecksumCalculator::class)]
 final class IbanChecksumCalculatorTest extends TestCase
 {
@@ -36,27 +33,18 @@ final class IbanChecksumCalculatorTest extends TestCase
         $this->calculator = new IbanChecksumCalculator();
     }
 
-    /**
-     * @dataProvider validValues
-     */
     #[DataProvider('validValues')]
     public function testValidValues(string $value): void
     {
         $this->assertTrue($this->calculator->isValid($value));
     }
 
-    /**
-     * @dataProvider validValues
-     */
     #[DataProvider('validValues')]
     public function testCalculatedChecksum(string $value, string $checksum): void
     {
         $this->assertSame($checksum, $this->calculator->calculateChecksum($value));
     }
 
-    /**
-     * @dataProvider invalidValues
-     */
     #[DataProvider('invalidValues')]
     public function testInvalidValues(string $value): void
     {

@@ -18,9 +18,6 @@ use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 
-/**
- * @covers DniValidator
- */
 #[CoversClass(DniValidator::class)]
 final class DniValidatorTest extends TestCase
 {
@@ -31,18 +28,12 @@ final class DniValidatorTest extends TestCase
         $this->validator = new DniValidator();
     }
 
-    /**
-     * @dataProvider validValues
-     */
     #[DataProvider('validValues')]
     public function testValidValues(string $value): void
     {
         $this->assertTrue($this->validator->isValid($value));
     }
 
-    /**
-     * @dataProvider invalidValues
-     */
     #[DataProvider('invalidValues')]
     public function testInvalidValues(mixed $value): void
     {

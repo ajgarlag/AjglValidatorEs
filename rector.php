@@ -21,5 +21,6 @@ return RectorConfig::configure()
 
     ->withPhpSets()
 
-    ->withPreparedSets(deadCode: true, codeQuality: true, privatization: true, earlyReturn: true, instanceOf: true, typeDeclarations: true, strictBooleans: true, phpunit: true, phpunitCodeQuality: true, symfonyCodeQuality: true)
+    ->withPreparedSets(deadCode: true, codeQuality: true, privatization: true, earlyReturn: true, instanceOf: true, typeDeclarations: true, strictBooleans: true, phpunitCodeQuality: true, symfonyCodeQuality: true)
+    ->withComposerBased(phpunit: true)
 ;
