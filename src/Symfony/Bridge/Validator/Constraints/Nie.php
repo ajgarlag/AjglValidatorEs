@@ -36,9 +36,9 @@ final class Nie extends Constraint
      * @param array<array-key, mixed> $options
      */
     public function __construct(
-        bool $caseSensitive = null,
-        string $message = null,
-        array $groups = null,
+        ?bool $caseSensitive = null,
+        ?string $message = null,
+        ?array $groups = null,
         mixed $payload = null,
         array $options = []
     ) {

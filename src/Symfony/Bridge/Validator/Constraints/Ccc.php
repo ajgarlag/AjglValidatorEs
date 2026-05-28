@@ -35,8 +35,8 @@ final class Ccc extends Constraint
      * @param array<array-key, mixed> $options
      */
     public function __construct(
-        string $message = null,
-        array $groups = null,
+        ?string $message = null,
+        ?array $groups = null,
         mixed $payload = null,
         array $options = []
     ) {
