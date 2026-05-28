@@ -46,39 +46,29 @@ final class DniValidatorTest extends ConstraintValidatorTestCase
         $this->buildViolation((new Dni())->message)->setCode(Dni::IS_INVALID_ERROR)->assertRaised();
     }
 
-    /**
-     * @return \Iterator<list<string>>
-     */
     public static function validValues(): \Iterator
     {
-        yield from [
-            ['44055333Y'],
-            ['84085859K'],
-            ['21873322T'],
-            ['68412892J'],
-            ['73779716V'],
-            ['88819264a'],
-            ['50623719y'],
-            ['02288983t'],
-            ['64932327s'],
-            ['81532270f'],
-        ];
+        yield ['44055333Y'];
+        yield ['84085859K'];
+        yield ['21873322T'];
+        yield ['68412892J'];
+        yield ['73779716V'];
+        yield ['88819264a'];
+        yield ['50623719y'];
+        yield ['02288983t'];
+        yield ['64932327s'];
+        yield ['81532270f'];
     }
 
-    /**
-     * @return \Iterator<list<mixed>>
-     */
     public static function invalidValues(): \Iterator
     {
-        yield from [
-            ['34055333Y'],
-            ['44085859K'],
-            ['Z8532138V'],
-            ['zz2J'],
-            ['l716V'],
-            [['a']],
-            [false],
-            [new \stdClass()],
-        ];
+        yield ['34055333Y'];
+        yield ['44085859K'];
+        yield ['Z8532138V'];
+        yield ['zz2J'];
+        yield ['l716V'];
+        yield [['a']];
+        yield [false];
+        yield [new \stdClass()];
     }
 }

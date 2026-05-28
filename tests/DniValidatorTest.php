@@ -40,40 +40,30 @@ final class DniValidatorTest extends TestCase
         $this->assertFalse($this->validator->isValid($value));
     }
 
-    /**
-     * @return \Iterator<list<string>>
-     */
     public static function validValues(): \Iterator
     {
-        yield from [
-            ['44055333Y'],
-            ['84085859K'],
-            ['21873322T'],
-            ['68412892J'],
-            ['73779716V'],
-            ['88819264A'],
-            ['50623719Y'],
-            ['02288983T'],
-            ['64932327S'],
-            ['81532270F'],
-        ];
+        yield ['44055333Y'];
+        yield ['84085859K'];
+        yield ['21873322T'];
+        yield ['68412892J'];
+        yield ['73779716V'];
+        yield ['88819264A'];
+        yield ['50623719Y'];
+        yield ['02288983T'];
+        yield ['64932327S'];
+        yield ['81532270F'];
     }
 
-    /**
-     * @return \Iterator<list<mixed>>
-     */
     public static function invalidValues(): \Iterator
     {
-        yield from [
-            ['34055333Y'],
-            ['44085859K'],
-            ['Z8532138V'],
-            ['zz2J'],
-            ['l716V'],
-            [['a']],
-            [false],
-            [null],
-            [new \stdClass()],
-        ];
+        yield ['34055333Y'];
+        yield ['44085859K'];
+        yield ['Z8532138V'];
+        yield ['zz2J'];
+        yield ['l716V'];
+        yield [['a']];
+        yield [false];
+        yield [null];
+        yield [new \stdClass()];
     }
 }

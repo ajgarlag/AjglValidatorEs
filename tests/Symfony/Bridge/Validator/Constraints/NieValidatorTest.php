@@ -46,42 +46,32 @@ final class NieValidatorTest extends ConstraintValidatorTestCase
         $this->buildViolation((new Nie())->message)->setCode(Nie::IS_INVALID_ERROR)->assertRaised();
     }
 
-    /**
-     * @return \Iterator<list<string>>
-     */
     public static function validValues(): \Iterator
     {
-        yield from [
-            ['Y7313897A'],
-            ['Z6141300Y'],
-            ['X7972230Q'],
-            ['Z3607453T'],
-            ['X8248943Q'],
-            ['z7950724C'],
-            ['z2249875c'],
-            ['z8532138v'],
-            ['Y5742304t'],
-            ['Y0739675d'],
-        ];
+        yield ['Y7313897A'];
+        yield ['Z6141300Y'];
+        yield ['X7972230Q'];
+        yield ['Z3607453T'];
+        yield ['X8248943Q'];
+        yield ['z7950724C'];
+        yield ['z2249875c'];
+        yield ['z8532138v'];
+        yield ['Y5742304t'];
+        yield ['Y0739675d'];
     }
 
-    /**
-     * @return \Iterator<list<mixed>>
-     */
     public static function invalidValues(): \Iterator
     {
-        yield from [
-            ['34055333Y'],
-            ['44085859K'],
-            ['a1873322T'],
-            ['Y3313897A'],
-            ['Z7141300Y'],
-            ['A8412892J'],
-            ['zz2J'],
-            ['l716V'],
-            [['a']],
-            [false],
-            [new \stdClass()],
-        ];
+        yield ['34055333Y'];
+        yield ['44085859K'];
+        yield ['a1873322T'];
+        yield ['Y3313897A'];
+        yield ['Z7141300Y'];
+        yield ['A8412892J'];
+        yield ['zz2J'];
+        yield ['l716V'];
+        yield [['a']];
+        yield [false];
+        yield [new \stdClass()];
     }
 }

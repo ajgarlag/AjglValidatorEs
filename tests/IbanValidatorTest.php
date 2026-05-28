@@ -45,35 +45,25 @@ final class IbanValidatorTest extends TestCase
         $this->assertFalse($this->validator->isValid($value));
     }
 
-    /**
-     * @return \Iterator<list<string>>
-     */
     public static function validValues(): \Iterator
     {
-        yield from [
-            ['ES5812345678010123456789'],
-            ['ES8200000000000000000000'],
-            ['ES8200010001650000000001'],
-            ['ES1299999999509999999999'],
-            ['ES7287654321510123456789'],
-            ['ES3011112222003333333333'],
-        ];
+        yield ['ES5812345678010123456789'];
+        yield ['ES8200000000000000000000'];
+        yield ['ES8200010001650000000001'];
+        yield ['ES1299999999509999999999'];
+        yield ['ES7287654321510123456789'];
+        yield ['ES3011112222003333333333'];
     }
 
-    /**
-     * @return \Iterator<list<mixed>>
-     */
     public static function invalidValues(): \Iterator
     {
-        yield from [
-            ['ES0812345678010123456789'],
-            ['FR0000000000000000000000'],
-            ['E58200010001650000000001'],
-            ['ES12999999995099999999'],
-            [['a']],
-            [false],
-            [null],
-            [new \stdClass()],
-        ];
+        yield ['ES0812345678010123456789'];
+        yield ['FR0000000000000000000000'];
+        yield ['E58200010001650000000001'];
+        yield ['ES12999999995099999999'];
+        yield [['a']];
+        yield [false];
+        yield [null];
+        yield [new \stdClass()];
     }
 }

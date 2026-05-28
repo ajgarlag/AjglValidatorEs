@@ -82,6 +82,6 @@ jobs:
             -   name: Install PHP dependencies
                 run: composer install --no-interaction --no-progress --no-suggest
             -   name: Rector
-                run: vendor/bin/rector --dry-run -vvv
+                run: vendor/bin/rector --dry-run --debug
             -   name: PHP CS Fixer
                 run: vendor/bin/php-cs-fixer fix -vvv --dry-run --format=checkstyle | cs2pr

@@ -46,36 +46,26 @@ final class NieChecksumCalculatorTest extends TestCase
         $this->assertFalse($this->calculator->isValid($value));
     }
 
-    /**
-     * @return \Iterator<array{0: string, 1: string}>
-     */
     public static function validValues(): \Iterator
     {
-        yield from [
-            ['Y7313897', 'A'],
-            ['Z6141300', 'Y'],
-            ['X7972230', 'Q'],
-            ['Z3607453', 'T'],
-            ['X8248943', 'Q'],
-            ['Z7950724', 'C'],
-            ['Z2249875', 'C'],
-            ['Z8532138', 'V'],
-            ['Y5742304', 'T'],
-            ['Y0739675', 'D'],
-        ];
+        yield ['Y7313897', 'A'];
+        yield ['Z6141300', 'Y'];
+        yield ['X7972230', 'Q'];
+        yield ['Z3607453', 'T'];
+        yield ['X8248943', 'Q'];
+        yield ['Z7950724', 'C'];
+        yield ['Z2249875', 'C'];
+        yield ['Z8532138', 'V'];
+        yield ['Y5742304', 'T'];
+        yield ['Y0739675', 'D'];
     }
 
-    /**
-     * @return \Iterator<list<string>>
-     */
     public static function invalidValues(): \Iterator
     {
-        yield from [
-            ['4055333'],
-            ['4085859'],
-            ['A853213'],
-            ['zz2J'],
-            ['l716V'],
-        ];
+        yield ['4055333'];
+        yield ['4085859'];
+        yield ['A853213'];
+        yield ['zz2J'];
+        yield ['l716V'];
     }
 }

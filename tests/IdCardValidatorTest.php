@@ -42,45 +42,38 @@ final class IdCardValidatorTest extends TestCase
 
     public static function validValues(): \Iterator
     {
-        yield from [
-            ['44055333Y'],
-            ['84085859K'],
-            ['21873322T'],
-            ['68412892J'],
-            ['73779716V'],
-            ['88819264A'],
-            ['50623719Y'],
-            ['02288983T'],
-            ['64932327S'],
-            ['81532270F'],
-            ['Y7313897A'],
-            ['Z6141300Y'],
-            ['X7972230Q'],
-            ['Z3607453T'],
-            ['X8248943Q'],
-            ['Z7950724C'],
-            ['Z2249875C'],
-            ['Z8532138V'],
-            ['Y5742304T'],
-            ['Y0739675D'],
-        ];
+        yield ['44055333Y'];
+        yield ['84085859K'];
+        yield ['21873322T'];
+        yield ['68412892J'];
+        yield ['73779716V'];
+        yield ['88819264A'];
+        yield ['50623719Y'];
+        yield ['02288983T'];
+        yield ['64932327S'];
+        yield ['81532270F'];
+        yield ['Y7313897A'];
+        yield ['Z6141300Y'];
+        yield ['X7972230Q'];
+        yield ['Z3607453T'];
+        yield ['X8248943Q'];
+        yield ['Z7950724C'];
+        yield ['Z2249875C'];
+        yield ['Z8532138V'];
+        yield ['Y5742304T'];
+        yield ['Y0739675D'];
     }
 
-    /**
-     * @return \Iterator<list<mixed>>
-     */
     public static function invalidValues(): \Iterator
     {
-        yield from [
-            ['Y3313897A'],
-            ['Z7141300Y'],
-            ['a8412892J'],
-            ['zz2J'],
-            ['l716V'],
-            [['a']],
-            [false],
-            [null],
-            [new \stdClass()],
-        ];
+        yield ['Y3313897A'];
+        yield ['Z7141300Y'];
+        yield ['a8412892J'];
+        yield ['zz2J'];
+        yield ['l716V'];
+        yield [['a']];
+        yield [false];
+        yield [null];
+        yield [new \stdClass()];
     }
 }
