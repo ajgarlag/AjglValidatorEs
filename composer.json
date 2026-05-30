@@ -26,11 +26,11 @@
     "require-dev": {
         "ergebnis/composer-normalize": "^2.45",
         "friendsofphp/php-cs-fixer": "^3.70.2",
-        "matthiasnoback/symfony-dependency-injection-test": "^5.1",
+        "matthiasnoback/symfony-dependency-injection-test": "^6.3",
         "phpstan/extension-installer": "^1.4.3",
         "phpstan/phpstan": "^2.1.6",
         "phpstan/phpstan-phpunit": "^2.0.4",
-        "phpunit/phpunit": "^10.5.45 || ^11.5",
+        "phpunit/phpunit": "^11.5",
         "rector/rector": "^2.0.10",
         "symfony/framework-bundle": "^5.4 || ^6.4.19 || ^7.4 || ^8.0",
         "symfony/validator": "^5.4 || ^6.4.19 || ^7.4 || ^8.0",
