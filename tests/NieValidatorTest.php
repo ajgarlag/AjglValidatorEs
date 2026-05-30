@@ -40,43 +40,33 @@ final class NieValidatorTest extends TestCase
         $this->assertFalse($this->validator->isValid($value));
     }
 
-    /**
-     * @return \Iterator<list<string>>
-     */
     public static function validValues(): \Iterator
     {
-        yield from [
-            ['Y7313897A'],
-            ['Z6141300Y'],
-            ['X7972230Q'],
-            ['Z3607453T'],
-            ['X8248943Q'],
-            ['Z7950724C'],
-            ['Z2249875C'],
-            ['Z8532138V'],
-            ['Y5742304T'],
-            ['Y0739675D'],
-        ];
+        yield ['Y7313897A'];
+        yield ['Z6141300Y'];
+        yield ['X7972230Q'];
+        yield ['Z3607453T'];
+        yield ['X8248943Q'];
+        yield ['Z7950724C'];
+        yield ['Z2249875C'];
+        yield ['Z8532138V'];
+        yield ['Y5742304T'];
+        yield ['Y0739675D'];
     }
 
-    /**
-     * @return \Iterator<list<mixed>>
-     */
     public static function invalidValues(): \Iterator
     {
-        yield from [
-            ['34055333Y'],
-            ['44085859K'],
-            ['a1873322T'],
-            ['Y3313897A'],
-            ['Z7141300Y'],
-            ['A8412892J'],
-            ['zz2J'],
-            ['l716V'],
-            [['a']],
-            [false],
-            [null],
-            [new \stdClass()],
-        ];
+        yield ['34055333Y'];
+        yield ['44085859K'];
+        yield ['a1873322T'];
+        yield ['Y3313897A'];
+        yield ['Z7141300Y'];
+        yield ['A8412892J'];
+        yield ['zz2J'];
+        yield ['l716V'];
+        yield [['a']];
+        yield [false];
+        yield [null];
+        yield [new \stdClass()];
     }
 }

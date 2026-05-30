@@ -46,36 +46,26 @@ final class DniChecksumCalculatorTest extends TestCase
         $this->assertFalse($this->calculator->isValid($value));
     }
 
-    /**
-     * @return \Iterator<array{0: string, 1: string}>
-     */
     public static function validValues(): \Iterator
     {
-        yield from [
-            ['44055333', 'Y'],
-            ['84085859', 'K'],
-            ['21873322', 'T'],
-            ['68412892', 'J'],
-            ['73779716', 'V'],
-            ['88819264', 'A'],
-            ['50623719', 'Y'],
-            ['02288983', 'T'],
-            ['64932327', 'S'],
-            ['81532270', 'F'],
-        ];
+        yield ['44055333', 'Y'];
+        yield ['84085859', 'K'];
+        yield ['21873322', 'T'];
+        yield ['68412892', 'J'];
+        yield ['73779716', 'V'];
+        yield ['88819264', 'A'];
+        yield ['50623719', 'Y'];
+        yield ['02288983', 'T'];
+        yield ['64932327', 'S'];
+        yield ['81532270', 'F'];
     }
 
-    /**
-     * @return \Iterator<list<string>>
-     */
     public static function invalidValues(): \Iterator
     {
-        yield from [
-            ['4055333Y'],
-            ['4085859K'],
-            ['A8532138'],
-            ['zz2J'],
-            ['l716V'],
-        ];
+        yield ['4055333Y'];
+        yield ['4085859K'];
+        yield ['A8532138'];
+        yield ['zz2J'];
+        yield ['l716V'];
     }
 }

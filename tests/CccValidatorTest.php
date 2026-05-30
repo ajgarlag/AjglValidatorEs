@@ -40,35 +40,25 @@ final class CccValidatorTest extends TestCase
         $this->assertFalse($this->validator->isValid($value));
     }
 
-    /**
-     * @return \Iterator<list<string>>
-     */
     public static function validValues(): \Iterator
     {
-        yield from [
-            ['12345678010123456789'],
-            ['00000000000000000000'],
-            ['00010001650000000001'],
-            ['99999999509999999999'],
-            ['87654321510123456789'],
-            ['11112222003333333333'],
-        ];
+        yield ['12345678010123456789'];
+        yield ['00000000000000000000'];
+        yield ['00010001650000000001'];
+        yield ['99999999509999999999'];
+        yield ['87654321510123456789'];
+        yield ['11112222003333333333'];
     }
 
-    /**
-     * @return \Iterator<list<mixed>>
-     */
     public static function invalidValues(): \Iterator
     {
-        yield from [
-            ['12345678010123aaaaaa'],
-            ['00000000000O00000000'],
-            ['00010001650000000005'],
-            ['9999999950999999999'],
-            [['a']],
-            [false],
-            [null],
-            [new \stdClass()],
-        ];
+        yield ['12345678010123aaaaaa'];
+        yield ['00000000000O00000000'];
+        yield ['00010001650000000005'];
+        yield ['9999999950999999999'];
+        yield [['a']];
+        yield [false];
+        yield [null];
+        yield [new \stdClass()];
     }
 }

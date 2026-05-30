@@ -51,31 +51,21 @@ final class IbanChecksumCalculatorTest extends TestCase
         $this->assertFalse($this->calculator->isValid($value));
     }
 
-    /**
-     * @return \Iterator<array{0: string, 1: string}>
-     */
     public static function validValues(): \Iterator
     {
-        yield from [
-            ['12345678010123456789', '58'],
-            ['00000000000000000000', '82'],
-            ['00010001650000000001', '82'],
-            ['99999999509999999999', '12'],
-            ['87654321510123456789', '72'],
-            ['11112222003333333333', '30'],
-        ];
+        yield ['12345678010123456789', '58'];
+        yield ['00000000000000000000', '82'];
+        yield ['00010001650000000001', '82'];
+        yield ['99999999509999999999', '12'];
+        yield ['87654321510123456789', '72'];
+        yield ['11112222003333333333', '30'];
     }
 
-    /**
-     * @return \Iterator<list<string>>
-     */
     public static function invalidValues(): \Iterator
     {
-        yield from [
-            ['123456780101234567'],
-            ['00000000000000000001'],
-            ['00010001650000000005'],
-            ['111122220O3333333333'],
-        ];
+        yield ['123456780101234567'];
+        yield ['00000000000000000001'];
+        yield ['00010001650000000005'];
+        yield ['111122220O3333333333'];
     }
 }

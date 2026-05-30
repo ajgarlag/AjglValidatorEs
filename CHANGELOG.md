@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- PHP 8.4 support
+- PHP 8.5 support
+- Add Symfony 8.x support
+
+### Removed
+
+- PHP 8.1 support
+- `thecodingmachine/safe:^2` support
+
 ## [0.1.6] - 2025-03-04
 
 ### Added
