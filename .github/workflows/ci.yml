@@ -1,87 +1,146 @@
 name: ci
 
 on:
-    push:
-        branches: ['main']
-    pull_request:
-        branches: ['*']
+    pull_request: ~
+    push: ~
     schedule:
-        -   cron: '0 0 * * *'
+        # Do not make it the first of the month and/or midnight since it is a very busy time
+        - cron: '03 11 8 * *'
+    workflow_dispatch: ~
 
 jobs:
-
     tests:
-        name: Tests - PHP ${{ matrix.php }} ${{ matrix.dependency-version }}
+        name: PHP ${{ matrix.php }} - Symfony ${{ matrix.symfony }}
         runs-on: ubuntu-latest
-        timeout-minutes: 15
+        continue-on-error: ${{ matrix.experimental }}
+
         strategy:
             matrix:
-                php: ['8.2', '8.3', '8.4', '8.5' ]
-                dependency-version: [ '' ]
+                php: ['8.2', '8.3', '8.4', '8.5']
+                symfony: ['5.4.*', '6.4.*', '7.4.*', '8.0.*', '8.1.*']
+                dependency-versions: ['highest']
+                composer-stable: ['1']
+                experimental: [false]
                 include:
                     -   php: '8.2'
-                        dependency-version: '--prefer-lowest'
+                        symfony: '5.4.*'
+                        dependency-versions: 'lowest'
+                        experimental: false
+                    -   php: 'latest'
+                        symfony: '8.2.*'
+                        dependency-versions: 'highest'
+                        composer-stable: '0'
+                        experimental: true
+                exclude:
+                    -   php: '8.2'
+                        symfony: '8.0.*'
+                    -   php: '8.2'
+                        symfony: '8.1.*'
+                    -   php: '8.3'
+                        symfony: '8.0.*'
+                    -   php: '8.3'
+                        symfony: '8.1.*'
         steps:
-            -   uses: actions/checkout@v4
-            -   name: Setup PHP
+            -   name: checkout
+                uses: actions/checkout@v6
+
+            -   name: set up php
                 uses: shivammathur/setup-php@v2
                 with:
                     php-version: ${{ matrix.php }}
-                    tools: composer:v2
-                    coverage: none
-            -   name: Cache Composer dependencies
-                uses: actions/cache@v4
+                    tools: composer, flex
+
+            -   name: enable Symfony Flex plugin
+                run: composer global config --no-interaction allow-plugins.symfony/flex true
+
+            -   name: install composer dependencies
+                env:
+                    SYMFONY_REQUIRE: ${{ matrix.symfony }}
+                    COMPOSER_PREFER_STABLE: ${{ matrix.composer-stable }}
+                uses: ramsey/composer-install@v4
                 with:
-                    path: ~/.cache/composer
-                    key: php-${{ matrix.php }}-composer-locked-${{ hashFiles('composer.lock') }}
-                    restore-keys: php-${{ matrix.php }}-composer-locked-
-            -   name: Install PHP dependencies
-                run: composer update ${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-progress --no-suggest
-            -   name: PHPUnit
-                run: vendor/bin/phpunit
+                    dependency-versions: ${{ matrix.dependency-versions }}
+
+            -   name: run tests
+                run: vendor/bin/phpunit --colors=always || ${{ matrix.experimental }}
 
     sa:
         name: Static analysis
         runs-on: ubuntu-latest
         steps:
-            -   uses: actions/checkout@v4
-            -   name: Setup PHP
+            -   name: checkout
+                uses: actions/checkout@v6
+
+            -   name: set up php
                 uses: shivammathur/setup-php@v2
                 with:
                     php-version: 8.5
-                    tools: composer:v2, cs2pr
-                    coverage: none
-            -   name: Cache Composer dependencies
-                uses: actions/cache@v4
+                    tools: composer, flex
+
+            -   name: enable Symfony Flex plugin
+                run: composer global config --no-interaction allow-plugins.symfony/flex true
+
+            -   name: install composer dependencies
+                env:
+                    SYMFONY_REQUIRE: ${{ matrix.symfony }}
+                    COMPOSER_PREFER_STABLE: ${{ matrix.composer-stable }}
+                uses: ramsey/composer-install@v4
                 with:
-                    path: ~/.cache/composer
-                    key: php-composer-locked-${{ hashFiles('composer.lock') }}
-                    restore-keys: php-composer-locked-
-            -   name: Install PHP dependencies
-                run: composer install --no-interaction --no-progress --no-suggest
-            -   name: PHPStan
-                run: vendor/bin/phpstan
+                    dependency-versions: ${{ matrix.dependency-versions }}
+
+            -   name: run static analysis
+                run: vendor/bin/phpstan --ansi
 
     cs:
         name: Coding standards
         runs-on: ubuntu-latest
         steps:
-            -   uses: actions/checkout@v4
-            -   name: Setup PHP
+            -   name: checkout
+                uses: actions/checkout@v6
+
+            -   name: set up php
                 uses: shivammathur/setup-php@v2
                 with:
                     php-version: 8.5
-                    tools: composer:v2, cs2pr
-                    coverage: none
-            -   name: Cache Composer dependencies
-                uses: actions/cache@v4
+                    tools: composer, flex
+
+            -   name: enable Symfony Flex plugin
+                run: composer global config --no-interaction allow-plugins.symfony/flex true
+
+            -   name: install composer dependencies
+                env:
+                    SYMFONY_REQUIRE: ${{ matrix.symfony }}
+                    COMPOSER_PREFER_STABLE: ${{ matrix.composer-stable }}
+                uses: ramsey/composer-install@v4
                 with:
-                    path: ~/.cache/composer
-                    key: php-composer-locked-${{ hashFiles('composer.lock') }}
-                    restore-keys: php-composer-locked-
-            -   name: Install PHP dependencies
-                run: composer install --no-interaction --no-progress --no-suggest
-            -   name: Rector
-                run: vendor/bin/rector --dry-run --debug
-            -   name: PHP CS Fixer
-                run: vendor/bin/php-cs-fixer fix -vvv --dry-run --format=checkstyle | cs2pr
+                    dependency-versions: ${{ matrix.dependency-versions }}
+
+            -   name: check coding standards
+                run: vendor/bin/php-cs-fixer fix --dry-run --diff --ansi
+
+    ar:
+        name: Automated refactorings
+        runs-on: ubuntu-latest
+        steps:
+            -   name: checkout
+                uses: actions/checkout@v6
+
+            -   name: set up php
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: 8.5
+                    tools: composer, flex
+
+            -   name: enable Symfony Flex plugin
+                run: composer global config --no-interaction allow-plugins.symfony/flex true
+
+            -   name: install composer dependencies
+                env:
+                    SYMFONY_REQUIRE: ${{ matrix.symfony }}
+                    COMPOSER_PREFER_STABLE: ${{ matrix.composer-stable }}
+                uses: ramsey/composer-install@v4
+                with:
+                    dependency-versions: ${{ matrix.dependency-versions }}
+
+            -   name: check automated refactorings
+                run: vendor/bin/rector --dry-run --ansi
