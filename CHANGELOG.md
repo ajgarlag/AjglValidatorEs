@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.8] - 2026-06-01
+
+### Removed
+
+- PHP 8.1 support (from composer.json)
+
 ## [0.1.7] - 2026-06-01
 
 ### Added
@@ -67,7 +73,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Symfony integration
 
 
-[unreleased]: https://github.com/ajgarlag/AjglValidatorEs/compare/0.1.6...HEAD
+[unreleased]: https://github.com/ajgarlag/AjglValidatorEs/compare/0.1.8...HEAD
+[0.1.8]: https://github.com/ajgarlag/AjglValidatorEs/releases/tag/0.1.8
 [0.1.7]: https://github.com/ajgarlag/AjglValidatorEs/releases/tag/0.1.7
 [0.1.6]: https://github.com/ajgarlag/AjglValidatorEs/releases/tag/0.1.6
 [0.1.5]: https://github.com/ajgarlag/AjglValidatorEs/releases/tag/0.1.5
