@@ -32,9 +32,9 @@
         "phpstan/phpstan-phpunit": "^2.0.16",
         "phpunit/phpunit": "^11.5.55",
         "rector/rector": "^2.4.5",
-        "symfony/framework-bundle": "^5.4 || ^6.4 || ^7.4 || ^8.0",
-        "symfony/validator": "^5.4 || ^6.4 || ^7.4 || ^8.0",
-        "symfony/var-dumper": "^5.4 || ^6.4 || ^7.4 || ^8.0",
+        "symfony/framework-bundle": "^6.4 || ^7.4 || ^8.0",
+        "symfony/validator": "^6.4 || ^7.4 || ^8.0",
+        "symfony/var-dumper": "^6.4 || ^7.4 || ^8.0",
         "thecodingmachine/phpstan-safe-rule": "^1.4.3"
     },
     "minimum-stability": "dev",
