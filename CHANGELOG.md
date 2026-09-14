@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-09-14
+
 ### Removed
 
 - Symfony 5.4 support
@@ -78,7 +80,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Symfony integration
 
 
-[unreleased]: https://github.com/ajgarlag/AjglValidatorEs/compare/0.1.8...HEAD
+[unreleased]: https://github.com/ajgarlag/AjglValidatorEs/compare/0.2.0...HEAD
+[0.2.0]: https://github.com/ajgarlag/AjglValidatorEs/compare/0.1.8...0.2.0
 [0.1.8]: https://github.com/ajgarlag/AjglValidatorEs/releases/tag/0.1.8
 [0.1.7]: https://github.com/ajgarlag/AjglValidatorEs/releases/tag/0.1.7
 [0.1.6]: https://github.com/ajgarlag/AjglValidatorEs/releases/tag/0.1.6
