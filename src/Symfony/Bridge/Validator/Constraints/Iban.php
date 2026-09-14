@@ -15,10 +15,6 @@ namespace Ajgl\ValidatorEs\Symfony\Bridge\Validator\Constraints;
 
 use Symfony\Component\Validator\Constraint;
 
-/**
- * @Annotation
- * @Target({"PROPERTY", "METHOD", "ANNOTATION"})
- */
 #[\Attribute(\Attribute::TARGET_PROPERTY | \Attribute::TARGET_METHOD | \Attribute::IS_REPEATABLE)]
 final class Iban extends Constraint
 {
@@ -33,16 +29,14 @@ final class Iban extends Constraint
 
     /**
      * @param list<string>|null $groups
-     * @param array<array-key, mixed> $options
      */
     public function __construct(
         ?bool $caseSensitive = null,
         ?string $message = null,
         ?array $groups = null,
         mixed $payload = null,
-        array $options = []
     ) {
-        parent::__construct($options, $groups, $payload);
+        parent::__construct(null, $groups, $payload);
 
         $this->caseSensitive = $caseSensitive ?? $this->caseSensitive;
         $this->message = $message ?? $this->message;

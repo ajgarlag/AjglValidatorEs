@@ -17,13 +17,13 @@ jobs:
         strategy:
             matrix:
                 php: ['8.2', '8.3', '8.4', '8.5']
-                symfony: ['5.4.*', '6.4.*', '7.4.*', '8.0.*', '8.1.*']
+                symfony: ['6.4.*', '7.4.*', '8.0.*', '8.1.*']
                 dependency-versions: ['highest']
                 composer-stable: ['1']
                 experimental: [false]
                 include:
                     -   php: '8.2'
-                        symfony: '5.4.*'
+                        symfony: '6.4.*'
                         dependency-versions: 'lowest'
                         experimental: false
                     -   php: 'latest'
