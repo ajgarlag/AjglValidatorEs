@@ -28,15 +28,13 @@ final class Ccc extends Constraint
 
     /**
      * @param list<string>|null $groups
-     * @param array<array-key, mixed> $options
      */
     public function __construct(
         ?string $message = null,
         ?array $groups = null,
         mixed $payload = null,
-        array $options = []
     ) {
-        parent::__construct($options, $groups, $payload);
+        parent::__construct(null, $groups, $payload);
 
         $this->message = $message ?? $this->message;
     }

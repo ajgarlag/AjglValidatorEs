@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 - Symfony 5.4 support
+- Removed `array $options` parameter from constructors in constraints
 
 ## [0.1.8] - 2026-06-01
 

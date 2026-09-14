@@ -29,16 +29,14 @@ final class Dni extends Constraint
 
     /**
      * @param list<string>|null $groups
-     * @param array<array-key, mixed> $options
      */
     public function __construct(
         ?bool $caseSensitive = null,
         ?string $message = null,
         ?array $groups = null,
         mixed $payload = null,
-        array $options = []
     ) {
-        parent::__construct($options, $groups, $payload);
+        parent::__construct(null, $groups, $payload);
 
         $this->caseSensitive = $caseSensitive ?? $this->caseSensitive;
         $this->message = $message ?? $this->message;
